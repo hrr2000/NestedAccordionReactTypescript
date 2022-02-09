@@ -1,2 +1,3 @@
 # NestedAccordionReactTypescript
-Created with CodeSandbox
+
+Nested Accordion React Component written in typescript 

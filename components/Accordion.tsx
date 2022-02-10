@@ -29,9 +29,18 @@ export const Accordion: React.FC<
   }
 
   useEffect(() => {
-    // @ts-ignoreif (active)
-    setMaxHeight(!active ? "0px" : `${contentSpace.current.scrollHeight}px`);
-    // @ts-ignoreif (active)
+    // @ts-ignore
+    contentSpace.current.style.maxHeight = maxHeight;
+
+    setTimeout(
+      () =>
+        setMaxHeight(
+          // @ts-ignoreif (active)
+          !active ? "0px" : `${contentSpace.current.scrollHeight}px`
+        ),
+      0
+    );
+
     if (active)
       // @ts-ignoreif (active)
       contentSpace.current.addEventListener(

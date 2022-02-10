@@ -57,20 +57,21 @@ export const AccordionGroup: React.FC<
       {currentData?.slice(0, pageSize)?.map((group) => {
         return (
           <Accordion
-            key={group.id}
+            key={group.title + group.id}
             changeChild={changeChild}
             changeValue={childChangeValue}
+            // @ts-ignoreif
             title={<p>{group.title}</p>}
             content={
               <div className="questions-box">
                 <ul>
                   {group?.content?.map((question) => {
                     return (
-                      <li>
+                      <li key={question.id}>
                         <Accordion
-                          key={question.id}
                           changeChild={changeChild}
                           changeValue={childChangeValue}
+                          // @ts-ignoreif
                           title={<p>{question.title}</p>}
                           content={<div>{question.answer}</div>}
                         ></Accordion>
